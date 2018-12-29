@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.study.spring.mapper.UserMapper">
+    <resultMap id="userMap" type="com.study.spring.domain.User">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="password" column="password"/>
+    </resultMap>
+
+
+    <select id="findByName" resultMap="userMap" parameterType="string">
+        SELECT * FROM springTest WHERE name = #{value}
+    </select>
+
+    <select id="findById" resultMap="userMap" parameterType="integer">
+        SELECT * FROM springTest WHERE id = #{value}
+    </select>
+</mapper>
